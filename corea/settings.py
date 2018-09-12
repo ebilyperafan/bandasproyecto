@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'corea.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.path.join(BASE_DIR, 'd72fo290fo1r1r'),
+        'HOST': 'ec2-54-163-245-44.compute-1.amazonaws.com',
+        'USER': 'wncnpfsglaknjm',
+        'PASSWORK': 'e931f5b69b82a84f60b7703f09d5a6e48f185816d44754c4be43eaf7489074d4',
+        'PORT': '5432',
+
     }
 }
 
