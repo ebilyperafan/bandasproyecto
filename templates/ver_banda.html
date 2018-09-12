@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>ver banda</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{% endblock%}
+
+{% block content %}<br>
+	<h1>{{ p.nombre_banda }}<br></h1><br>
+
+	<table class="table table-borderless table-dark">
+  		<thead>
+		    <tr>
+		      <th scope="col">Numero de integrantes</th>
+		      <th scope="col">Nacionalidad</th>
+		      <th scope="col">Foto</th>
+		    </tr>
+  		</thead>
+  		<tbody>
+		    <tr>
+		      <td>{{ p.numero_integrantes }}</td>
+		      <td>{{ p.nacionalidad }}</td>
+		      <td><img src="/media/{{ p.photo }}" alt="" width="350px" height="250"></td>
+		    </tr>
+		   
+		  </tbody>
+	</table>
+
+
+	<h2>Integrantes</h2>
+
+	{% for p in integrantes.all %}
+	<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Edad</th>
+		      <th scope="col">Genero</th>
+		      <th scope="col">Direccion</th>
+		      <th scope="col">Rol</th>
+		      <th scope="col">Foto</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>{{p.nombre}}</td>
+		      <td>{{p.edad}}</td>
+		      <td>{{p.genero}}</td>
+		      <td>{{p.direccion}}</td>
+		      <td>{% for i in p.roles.all %}
+
+					{{ i }}<br>
+								
+					{% endfor %}</td>
+		      <td><img src="/media/{{ p.foto }}" alt="" width="350px" height="250px"></td>
+		     
+		      </td>
+		    </tr>
+		    <tr>
+
+			  {% endfor %}
+		  </tbody>
+		</table>
+
+
+
+	
+
+	
+	
+{% endblock %}	

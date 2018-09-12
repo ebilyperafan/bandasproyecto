@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+	<title>Perfil</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% endblock %}
+
+{% block content %}
+	<h1>Perfil</h1>
+	{{ ver_perfil }}
+	<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Identificacion</th>
+		      <th scope="col">Edad</th>
+		      <th scope="col">Foto</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>{{ver_perfil.user}}</td>
+		      <td>{{ver_perfil.identificacion}}</td>
+		      <td>{{ver_perfil.edad}}</td>
+		      <td><img src="/media/{{ ver_perfil.foto }}" alt="" width="250px" height="250px"></td>
+
+		    </tr>
+		    <tr>
+
+			   			
+		  </tbody>
+		</table>
+
+
+
+
+	
+{% endblock %}

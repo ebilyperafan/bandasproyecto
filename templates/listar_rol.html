@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block  titulo %}
+<title>listar rol</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+{% endblock%}
+
+{% block content %}<br>
+	<h1>Roles</h1><br>
+	<!--<h2>{{listar_rol}}</h2>-->
+	{% for p in listar_rol.all %}
+	<table class="table table-bordered-responsive" >
+		  <thead>
+		    <tr>
+		      <th scope="col">Roles</th>
+		      <th scope="col">Acciones</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th>{{ p.nombre_rol }}</th>
+		      
+		      <td>
+		      
+				    {% if user.is_authenticated %}
+
+					    <a href="/editar_rol/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editar</font></font></a>
+
+					    <a href="/eliminar_rol/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Eliminar</font></font></a>
+		  			{% endif %}
+		      </td>
+		    </tr>
+		    <tr>
+
+			   			{% endfor %}
+		  </tbody>
+		</table>
+
+
+
+
+
+
+	
+	
+
+	
+{% endblock %}		

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block  titulo %}
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>listar integrante</title>
+{% endblock%}
+
+{% block content %}<br>
+	<h1>Integrantes</h1><br>		
+	
+	<!--<h2>{{listar_integrante}}</h2>-->
+
+	{% for p in listar_integrante %}
+	<table class="table table-bordered">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Banda</th>
+		      <th scope="col">Edad</th>
+		      <th scope="col">Genero</th>
+		      <th scope="col">Roles</th>
+		      <th scope="col">Direccion</th>
+		      <th scope="col">Foto</th>
+		      <th scope="col">Acciones</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th>{{ p.nombre }}</th>
+			  <td>{{ p.banda }}</td>
+		      <td>{{ p.edad }}</td>
+		      <td>{{ p.genero }}</td>
+		      <td>{% for i in p.roles.all %}
+		      		 {{ i }}<br>
+		      		{% endfor %}</td>
+		      <td>{{ p.direccion }}</td>
+		      <td><img src="/media/{{ p.foto }}" alt="" width="250px" height="250px"></td>
+		      <td>
+		      	<a href="/ver_integrante/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver detalles </font></font></a>
+
+				    {% if user.is_authenticated %}
+
+					    <a href="/editar_integrante/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editar</font></font></a>
+
+					    <a href="/eliminar_integrante/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Eliminar</font></font></a>
+		 			 {% endif %}
+		      </td>
+		    </tr>
+		    <tr>
+
+			   			{% endfor %}
+		  </tbody>
+		</table>
+		
+
+
+
+
+
+
+
+	
+
+
+
+	
+		
+	
+{% endblock %}
+
+

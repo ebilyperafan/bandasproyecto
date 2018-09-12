@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block  titulo %}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>listar banda</title>
+{% endblock%}
+
+{% block content %}<br>
+	<h1>Bandas Participantes</h1><br>
+	
+	{% for p in listar_banda.all %}
+	<table class="table table-bordered-responsive">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Numero Integrantes</th>
+		      <th scope="col">Nacionalidad</th>
+		      <th scope="col">Imagen</th>
+		      <th scope="col">Acciones</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>{{ p.nombre_banda }}</td>
+		      <td>{{ p.numero_integrantes}}</td>
+		      <td>{{ p.nacionalidad }}</td>
+		      <td><img src="/media/{{ p.photo }}" alt="" width="350px" height="250px"></td>
+		      <td>
+		      	<a href="/ver_banda/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver detalles </font></font></a>
+				    {% if user.is_authenticated %}
+
+					    <a href="/editar_banda/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editar</font></font></a>
+
+					    <a href="/eliminar_banda/{{ p.id }}" class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Eliminar</font></font></a>
+		  			{% endif %}
+		      </td>
+		    </tr>
+		    <tr>
+
+			   			{% endfor %}
+		  </tbody>
+		</table>
+		
+
+
+
+		
+			
+
+
+
+
+
+
+
+		
+			  
+	
+	
+{% endblock %}		
+
+	
+
